@@ -4,6 +4,8 @@ import { createStore } from 'redux';
 import shoppingListItemReducer from './reducers/shoppingListItemReducer';
 import App from './App';
 import './index.css';
+import { Provider } from 'react-redux'; /* code change */
+
 
 const store = createStore(
   shoppingListItemReducer,
@@ -11,6 +13,7 @@ const store = createStore(
 );
 
 ReactDOM.render(
-  <App store={store}/>,
-  document.getElementById('root')
+<Provider store={store}>
+    <App />
+  </Provider>,  document.getElementById('root')
 );
